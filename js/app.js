@@ -51,25 +51,7 @@
             reader.onloadend = function(){
 
                 var base64data = reader.result;
-                $.ajax({
-                    method: "POST",
-                    url: "{{ route('crop-image-upload') }}",
-                    dataType: 'JSON',
-                    data: {
-                        '_token': $('meta[name="csrf-token"]').attr('content'),
-                        'profile_photo': base64data,
-                        '_method': 'PUT'
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        $modal.modal('hide');
-                        //alert("Crop image successfully uploaded");
-                    },
-                    error: function (data) {
-                        console.log('Error');
-                        console.log(data);
-                    }
-                });
+                console.log(base64data);
             };
         });
     });
